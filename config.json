@@ -1,0 +1,25 @@
+{
+  "name": {
+    "zh-cn": "Valon-I智能车",
+    "en": "Valon-I Smart car"
+  },
+  "description": {
+    "zh-cn": "YFROBOT Valon-I 智能编程小车",
+    "en": "YFROBOT Valon-I Smart Programming Car"
+  },
+  "author": "YFROBOT",
+  "email": "yfrobot@qq.com",
+  "license": "MIT",
+  "isBoard": false,
+  "id": "yfrobot_valon",
+  "version": "0.0.1",
+  "platform": [ "win", "mac", "web" ],
+  "asset": {
+    "arduinoC": {
+      "dir": "arduinoC/",
+      "version": "0.0.1",
+      "board": [ "esp32"],
+      "main": "main.ts"
+    }
+  }
+}
