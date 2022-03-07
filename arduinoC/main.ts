@@ -120,17 +120,17 @@ namespace valon {
         Generator.addInclude(`definevaloncarFun`, `// valon car 控制函数\n`+
             `void carDrive(int dir, int speed) {\n`+
             `  if (dir == 0) {          // 前进\n`+
-            `    motorDrive(0, sp, 0);\n`+
-            `    motorDrive(1, sp, 0);\n`+
+            `    motorDrive(0, speed, 0);\n`+
+            `    motorDrive(1, speed, 0);\n`+
             `  } else if (dir == 1) {   // 后退\n`+
-            `    motorDrive(0, sp, 1);\n`+
-            `    motorDrive(1, sp, 1);\n`+
+            `    motorDrive(0, speed, 1);\n`+
+            `    motorDrive(1, speed, 1);\n`+
             `  } else if (dir == 2) {   // 右转\n`+
-            `    motorDrive(0, sp/2, 0);\n`+
-            `    motorDrive(1, sp, 0);\n`+
+            `    motorDrive(0, speed/2, 0);\n`+
+            `    motorDrive(1, speed, 0);\n`+
             `  } else if (dir == 3) {   // 左转\n`+
-            `    motorDrive(0, sp, 0);\n`+
-            `    motorDrive(1, sp/2, 0);\n`+
+            `    motorDrive(0, speed, 0);\n`+
+            `    motorDrive(1, speed/2, 0);\n`+
             `  }\n`+
             `}`
         );
@@ -142,18 +142,18 @@ namespace valon {
             `  if (mot == 0) {    // 右电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P16, LOW);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P16, HIGH);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    }\n`+
             `  } else {           // 左电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P13, LOW);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P13, HIGH);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    }\n`+
             `  }\n`+
             `}`
@@ -168,17 +168,17 @@ namespace valon {
         Generator.addInclude(`definevaloncarFun`, `// valon car 控制函数\n`+
             `void carDrive(int dir, int speed) {\n`+
             `  if (dir == 0) {          // 前进\n`+
-            `    motorDrive(0, sp, 0);\n`+
-            `    motorDrive(1, sp, 0);\n`+
+            `    motorDrive(0, speed, 0);\n`+
+            `    motorDrive(1, speed, 0);\n`+
             `  } else if (dir == 1) {   // 后退\n`+
-            `    motorDrive(0, sp, 1);\n`+
-            `    motorDrive(1, sp, 1);\n`+
+            `    motorDrive(0, speed, 1);\n`+
+            `    motorDrive(1, speed, 1);\n`+
             `  } else if (dir == 2) {   // 右转\n`+
-            `    motorDrive(0, sp/2, 0);\n`+
-            `    motorDrive(1, sp, 0);\n`+
+            `    motorDrive(0, speed/2, 0);\n`+
+            `    motorDrive(1, speed, 0);\n`+
             `  } else if (dir == 3) {   // 左转\n`+
-            `    motorDrive(0, sp, 0);\n`+
-            `    motorDrive(1, sp/2, 0);\n`+
+            `    motorDrive(0, speed, 0);\n`+
+            `    motorDrive(1, speed/2, 0);\n`+
             `  }\n`+
             `}`
         );
@@ -190,18 +190,18 @@ namespace valon {
             `  if (mot == 0) {    // 右电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P16, LOW);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P16, HIGH);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    }\n`+
             `  } else {           // 左电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P13, LOW);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P13, HIGH);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    }\n`+
             `  }\n`+
             `}`
@@ -226,18 +226,18 @@ namespace valon {
             `  if (mot == 0) {    // 右电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P16, LOW);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P16, HIGH);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    }\n`+
             `  } else {           // 左电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P13, LOW);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P13, HIGH);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    }\n`+
             `  }\n`+
             `}`
@@ -257,18 +257,18 @@ namespace valon {
             `  if (mot == 0) {    // 右电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P16, LOW);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P16, HIGH);\n`+
-            `      analogWrite(P15, speed);\n`+
+            `      analogWrite(P15, sp);\n`+
             `    }\n`+
             `  } else {           // 左电机\n`+
             `    if (dir == 0) {  // 正转\n`+
             `      digitalWrite(P13, LOW);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    } else {         // 反转\n`+
             `      digitalWrite(P13, HIGH);\n`+
-            `      analogWrite(P14, speed);\n`+
+            `      analogWrite(P14, sp);\n`+
             `    }\n`+
             `  }\n`+
             `}`
