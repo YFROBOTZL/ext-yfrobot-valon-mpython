@@ -300,19 +300,19 @@ namespace valon {
     export function readPatrolSensors(parameter: any, block: any) {
         let psns = parameter.PSNS.code;
         if(psns === `S0`) {
-            Generator.addCode(`(digitalRead(P0)) != 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) != 0)`);
+            Generator.addCode(`(digitalRead(P0) != 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) != 0)`);
         } else if(psns === `S1`) {
-            Generator.addCode(`(digitalRead(P0)) == 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) != 0)`);
+            Generator.addCode(`(digitalRead(P0) == 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) != 0)`);
         } else if(psns === `S2`) {
-            Generator.addCode(`(digitalRead(P0)) != 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) == 0)`);
+            Generator.addCode(`(digitalRead(P0) != 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) == 0)`);
         } else if(psns === `S3`) {
-            Generator.addCode(`(digitalRead(P0)) == 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) == 0)`);
+            Generator.addCode(`(digitalRead(P0) == 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) == 0)`);
         } else if(psns === `S4`) {
-            Generator.addCode(`(digitalRead(P0)) != 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) != 0)`);
+            Generator.addCode(`(digitalRead(P0) != 0)&&(digitalRead(P2) != 0)&&(analogRead(P3) != 0)`);
         } else if(psns === `S5`) {
-            Generator.addCode(`(digitalRead(P0)) == 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) != 0)`);
+            Generator.addCode(`(digitalRead(P0) == 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) != 0)`);
         } else if(psns === `S6`) {
-            Generator.addCode(`(digitalRead(P0)) != 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) == 0)`);
+            Generator.addCode(`(digitalRead(P0) != 0)&&(digitalRead(P2) == 0)&&(analogRead(P3) == 0)`);
         }
     }
 
