@@ -21,5 +21,6 @@
     "valon.PINP.P0|menu": "左",
     "valon.PINP.P2|menu": "中",
     "valon.PINP.P3|menu": "右",
-    "valon.readPatrolSensors|block": "巡线传感器状态[PSNS]"
+    "valon.readPatrolSensors|block": "巡线传感器状态[PSNS]",
+    "valon.readUlrasonicSensor|block": "读取超声波距离单位cm"
 }

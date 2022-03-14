@@ -316,4 +316,12 @@ namespace valon {
         }
     }
 
+    
+    //% block="read ulrasonic sensor Unit cm" blockType="reporter"
+    export function readUlrasonicSensor(parameter: any, block: any) {
+        Generator.addInclude("include_DFRobot_URM10", `#include <DFRobot_URM10.h>`);
+        Generator.addObject("object_DFRobot_URM10_valon", `DFRobot_URM10`, `valon_sr04;`);
+        Generator.addCode(`valon_sr04.getDistanceCM(P8,P9)`);
+    }
+
 }
