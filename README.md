@@ -45,5 +45,7 @@ mpython掌控板        |             |        √已测试      |             |
 ## 联系我们 Contact Us
 * http://www.yfrobot.com.cn/wiki/index.php?title=%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC
 
+## 其他扩展库 Other extension libraries
+* http://yfrobot.com.cn/wiki/index.php?title=YFRobot%E5%BA%93_For_Mind%2B
 
 ## 参考 Reference Resources
