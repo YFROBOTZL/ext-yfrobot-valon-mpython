@@ -12,7 +12,7 @@
   "license": "MIT",
   "isBoard": false,
   "id": "yfrobot_valon_mpython",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "platform": [ "win", "mac", "web" ],
   "asset": {
     "arduinoC": {
