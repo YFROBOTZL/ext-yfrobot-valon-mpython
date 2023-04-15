@@ -324,4 +324,103 @@ namespace valon {
         Generator.addCode(`valon_sr04.getDistanceCM(P8,P9)`);
     }
 
+    /*
+    //% block="MpythonBT init name [NAME]" blockType="command"
+    //% NAME.shadow="string"  NAME.defl="Valon-BT"
+    export function MpythonBTInit(parameter: any, block: any) {
+        let name=parameter.NAME.code;
+        console.log(name);
+        Generator.addInclude('MpythonBTInitinclude', '#include "BluetoothSerial.h"');
+        Generator.addObject("MpythonBTInitobject", "BluetoothSerial", "SerialBT");
+        Generator.addSetup("MpythonBTInitsetup", `SerialBT.begin(${name});`);
+        
+        Generator.addInclude('MpythonBT_Inbuf', 'static uint8_t inBuf[5]; // 数据接收数组变量');
+        
+
+    }
+
+    //% block="MpythonBT available" blockType="boolean"
+    export function MpythonBTAvailable(parameter: any, block: any) {
+        Generator.addCode(["SerialBT.available()",Generator.ORDER_UNARY_POSTFIX]);
+    }
+
+    //% block="MpythonBT read " blockType="reporter"
+    export function MpythonBTRead(parameter: any, block: any) {
+        Generator.addCode(["SerialBT.read()",Generator.ORDER_UNARY_POSTFIX]);
+    }
+
+     //% block="MpythonBT write [STR]" blockType="command"
+     //% STR.shadow="number" STR.defl="1"
+    export function MpythonBTWrite(parameter: any, block: any) {
+        let str = parameter.STR.code;
+        Generator.addCode(`SerialBT.write(${str});`);
+    }
+    */
+    
+    //% block="MpythonBT [NAME] receive data is valid?" blockType="boolean"
+    //% NAME.shadow="string"  NAME.defl="Valon-BT"
+    export function MpythonBTReceiveDataValid(parameter: any, block: any) {  
+        
+        let name=parameter.NAME.code;
+        console.log(name);
+        Generator.addInclude('MpythonBTInitinclude_object', `#include "BluetoothSerial.h" \n`+
+        `BluetoothSerial SerialBT;\n`+
+        `static uint8_t inBuf[5]; // 数据接收数组变量\n`+
+        `uint8_t SerialBTReceiveData();\n`);
+        
+        Generator.addSetup("MpythonBTInitsetup", `SerialBT.begin(${name});`);
+
+        Generator.addInclude(`defineSerialBTReceiveDataFun`, ``+
+            `uint8_t SerialBTReceiveData() {\n`+
+            `  uint8_t c;\n`+
+            `  static uint8_t offset, dataSize;\n`+
+            `  static uint32_t checksum;\n`+
+            `  static enum _serial_state {IDLE, HEADER_START, HEADER_M, HEADER_ARROW, HEADER_SIZE, HEADER_CMD, }  c_state = IDLE;\n`+
+            `  while (SerialBT.available()) {\n`+
+            `    c = SerialBT.read();                             // 读串口缓冲区\n`+
+            `    if (c_state == IDLE) {                           // 串口状态空闲,等待 HEADER_START 状态的到来\n`+
+            `      c_state = (c == '$') ? HEADER_START : IDLE;    // 判定是$字符吗？是则进入 HEADER_START 状态 \n`+
+            `      if (c_state == IDLE) {}                        // evaluate all other incoming serial data\n`+
+            `    } else if (c_state == HEADER_START) {\n`+
+            `      c_state = (c == 'M') ? HEADER_M : IDLE;        // 判定是M字符吗？是则进入HEADER_M状态\n`+
+            `    } else if (c_state == HEADER_M) {\n`+
+            `      c_state = (c == '>') ? HEADER_ARROW : IDLE;    // 判定是>字符吗？是则进入HEADER_ARROW状态\n`+
+            `    } else if (c_state == HEADER_ARROW) {            // 是ARROW字符，进入HEADER_ARROW状态，判定缓冲区的大小\n`+
+            `      if (c > 10) {                                  // now we are expecting the payload size 我们期望足够的数据占用缓冲区\n`+
+            `        c_state = IDLE;                              // 数据位置不够 退出循环\n`+
+            `        continue;                                    // 不执行该while循环包含的后面的语句，跳出开始下一轮循环 \n`+
+            `      }\n`+
+            `      dataSize = c;\n`+
+            `      offset = 0;\n`+
+            `      checksum = 0;\n`+
+            `      checksum ^= c;                                 // 校验和 1  -  dataSize\n`+
+            `      c_state = HEADER_SIZE;                         // the command is to follow 接收到数据长度，进入HEADER_SIZE状态\n`+
+            `    } else if (c_state == HEADER_SIZE) {\n`+
+            `      inBuf[offset] = c;                             // 接收 指令(code)\n`+
+            `      offset = 1;                                    // offset 标记加一\n`+
+            `      checksum ^= c;                                 // 校验和 2  -  code\n`+
+            `      c_state = HEADER_CMD;                          // 接收到指令，进入HEADER_CMD状态\n`+
+            `    } else if (c_state == HEADER_CMD && offset < dataSize) {\n`+
+            `      checksum ^= c;                                 // 校验和 2  -  data\n`+
+            `      inBuf[offset] = c;\n`+
+            `      offset++;\n`+
+            `    } else if (c_state == HEADER_CMD && offset >= dataSize) {\n`+
+            `      if ((checksum & 0xFF) == c) {\n`+
+            `        return 0x01;              // 数据有效\n`+
+            `      }\n`+
+            `      c_state = IDLE;             // 返回IDLE状态\n`+
+            `    }\n`+
+            `  }\n`+
+            `  return 0x00;                    // 数据无效，返回0x00\n`+
+            `}`
+        );
+
+        Generator.addCode('SerialBTReceiveData()');
+    }
+
+    //% block="MpythonBT receive data" blockType="reporter"
+    export function MpythonBTReceiveData(parameter: any, block: any) {
+        Generator.addCode(`inBuf[0]`);
+    }
+
 }

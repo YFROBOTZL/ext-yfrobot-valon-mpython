@@ -22,5 +22,11 @@
     "valon.PINP.P2|menu": "中",
     "valon.PINP.P3|menu": "右",
     "valon.readPatrolSensors|block": "巡线传感器状态[PSNS]",
-    "valon.readUlrasonicSensor|block": "读取超声波距离单位cm"
+    "valon.readUlrasonicSensor|block": "读取超声波距离单位cm",
+    "valon.MpythonBTInit|block": "蓝牙 初始化 名称为 [NAME]",
+    "valon.MpythonBTAvailable|block": "蓝牙 有数据可读？",
+    "valon.MpythonBTRead|block": "蓝牙 读数据",
+    "valon.MpythonBTWrite|block": "蓝牙 写数据 [STR]",
+    "valon.MpythonBTReceiveDataValid|block": "蓝牙 [NAME] 接收数据有效？",
+    "valon.MpythonBTReceiveData|block": "指令1"
 }

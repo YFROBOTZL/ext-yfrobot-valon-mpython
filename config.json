@@ -4,15 +4,15 @@
     "en": "Valon-I Smart car-mpython"
   },
   "description": {
-    "zh-cn": "YFROBOT Valon-I 智能编程小车（掌控板）",
-    "en": "YFROBOT Valon-I Smart Programming Car（mpython）"
+    "zh-cn": "YFROBOT Valon-I 智能编程小车（掌控板）- V0.0.3",
+    "en": "YFROBOT Valon-I Smart Programming Car（mpython）- V0.0.3"
   },
   "author": "YFROBOT",
   "email": "yfrobot@qq.com",
   "license": "MIT",
   "isBoard": false,
   "id": "yfrobot_valon_mpython",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "platform": [ "win", "mac", "web" ],
   "asset": {
     "arduinoC": {
