@@ -28,5 +28,25 @@
     "valon.MpythonBTRead|block": "蓝牙 读数据",
     "valon.MpythonBTWrite|block": "蓝牙 写数据 [STR]",
     "valon.MpythonBTReceiveDataValid|block": "蓝牙 [NAME] 接收数据有效？",
-    "valon.MpythonBTReceiveData|block": "指令1"
+    "valon.MpythonBTBJ|block": "接收[BJ]指令数据有效？",
+    "valon.MpythonBTReceiveData|block": "[CMD]值",
+    "valon.BT_C_VALUE.0x65|menu": "按键",
+    "valon.BT_C_VALUE.0x70|menu": "摇杆",
+    "valon.BT_C_VALUE.0x64|menu": "彩灯",
+    "valon.BT_C_VALUE.0x66|menu": "开关LED",
+    "valon.BT_C_VALUE.0x67|menu": "开关蜂鸣器",
+    "valon.BT_C_VALUE.0x68|menu": "开关继电器",
+    "valon.BT_C_VALUE.0x69|menu": "开关其他",
+    "valon.BTVALUE.BTN|menu": "按键",
+    "valon.BTVALUE.JOYL|menu": "摇杆左",
+    "valon.BTVALUE.JOYR|menu": "摇杆右",
+    "valon.BTVALUE.COLOR_MODE|menu": "彩灯点亮模式",
+    "valon.BTVALUE.COLOR_RED|menu": "红色值",
+    "valon.BTVALUE.COLOR_GREEN|menu": "绿色值",
+    "valon.BTVALUE.COLOR_BLUE|menu": "蓝色值",
+    "valon.BTVALUE.SWLED_VALUE|menu": "LED开关值",
+    "valon.BTVALUE.SWBuzzer_VALUE|menu": "蜂鸣器开关值",
+    "valon.BTVALUE.SWRelay_VALUE|menu": "继电器开关值",
+    "valon.BTVALUE.SWOther_VALUE|menu": "其他开关值"
+        
 }

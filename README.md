@@ -39,7 +39,7 @@ mpython掌控板        |             |        √已测试      |             |
 
 
 ## 更新日志 Release Note
-* V0.0.3  新增蓝牙遥控功能（仅支持部分安卓机型，可先点击[http://file.yfrobot.com.cn/wiki/app/YF-LinkV2.4.2.apk 下载app]测试是否适用）
+* V0.0.3  新增蓝牙遥控功能（仅支持部分安卓机型，可先点击[http://file.yfrobot.com.cn/wiki/app/YF-LinkV2.4.2.apk 下载app]测试是否适用），Mind+V1.7.3 RC3.0版本软件测试
 * V0.0.2  更新图片
 * V0.0.1  基础功能完成，Mind+V1.7.1 RC2.0版本软件测试
 
